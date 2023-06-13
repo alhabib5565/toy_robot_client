@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 import {BsGoogle} from 'react-icons/bs'
 const Register = () => {
     const [error, setError] = useState('')
-    const { createUser } = useContext(AuthContext)
+    const { createUser, profileUpdate } = useContext(AuthContext)
     const navigate = useNavigate()
     const handleRegister = (event) => {
         event.preventDefault()
@@ -16,7 +16,7 @@ const Register = () => {
         const email = form.email.value
         const password = form.password.value
         const photoUrl = form.photoUrl.value
-        // console.log(name, email, password, photoUrl)
+        console.log(name, email, password, photoUrl)
 
         setError('')
         createUser(email, password)
@@ -24,7 +24,7 @@ const Register = () => {
                 let createdUser = result.user
                 console.log(createdUser)
                 setError('')
-                updateProfile(result.user, { displayName: name, photoURL: photoUrl })
+                profileUpdate( name, photoUrl )
                     .then(() => console.log('profile update success'))
                     .catch(error => {
                         setError(error.message)
