@@ -1,15 +1,33 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import img from '../../assets/login.avif'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const [error, setError] = useState('')
+    const {loginUser} = useContext(AuthContext)
     const handleLogin = (event) => {
         event.preventDefault()
         const form = event.target
         const email = form.email.value
         const password = form.password.value
-        console.log(email, password)
+        // console.log(email, password)
+
+        setError('')
+        loginUser(email, password)
+        .then(result => {
+            console.log(result)
+            Swal.fire({
+                title: 'Success!',
+                text: 'Login successfull',
+                icon: 'success',
+                confirmButtonText: 'Cool'
+              })
+        })
+        .catch(error => {
+            setError(error.message)
+        })
     }
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -41,7 +59,7 @@ const Login = () => {
                             <input type='submit' className="btn btn-primary" value="Register" />
                         </div>
 
-                        <p>already have an accout? <Link className='text-blue-600 hover:underline' to='/login'>Login</Link></p>
+                        <p>already have an accout? <Link className='text-blue-600 hover:underline' to='/register'>Register</Link></p>
                     </form>
                 </div>
             </div>
