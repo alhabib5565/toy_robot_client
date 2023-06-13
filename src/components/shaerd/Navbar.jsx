@@ -7,6 +7,7 @@ import toast, { Toaster } from 'react-hot-toast';
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
     // console.log(user.email, 'user navbar')
+    console.log(user?.photoURL)
     const handleLogout = () => {
         logOut()
             .then(() => {
@@ -67,7 +68,7 @@ const Navbar = () => {
         }
     </>
     return (
-        <div className=' lg:border-b-4 pb-4 mb-10 md:mb-14 lg:mb-20 border-orange-300'>
+        <div className=' lg:border-b-4  border-orange-300'>
             <div className="navbar max-w-7xl mx-auto bg-base-100">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -90,7 +91,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="avatar navbar-end">
-                    <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                    <div className="w-12 rounded-full ring ring-orange-400 ring-offset-base-100 ring-offset-2">
                         <img title={user?.displayName} src={user?.photoURL} />
                     </div>
                 </div>
