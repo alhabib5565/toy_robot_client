@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
-import { useForm, SubmitHandler } from "react-hook-form"
+import React, { useContext, useState } from 'react';
+import { useForm } from "react-hook-form"
+import { AuthContext } from '../../provider/AuthProvider';
 const AddToy = () => {
-    const { user } = useState()
+    const { user } = useContext(AuthContext)
     const {
         register,
         handleSubmit,
         watch,
         formState: { errors },
-    } = useForm 
+    } = useForm()
 
     const onSubmit = (data) => {
         console.log(data)
@@ -26,15 +27,7 @@ const AddToy = () => {
                         <label className="label">
                             <span className="label-text">Seller Name</span>
                         </label>
-                        <input type="text" placeholder="Seller Name" {...register("sellerName")} className="input input-bordered w-full" />
-                    </div>
-
-                    <div>
-                        <select {...register("gender")}>
-                            <option value="female">female</option>
-                            <option value="male">male</option>
-                            <option value="other">other</option>
-                        </select>
+                        <input type="text" defaultValue={user?.displayName} placeholder="Seller Name" {...register("sellerName")} className="input input-bordered w-full" />
                     </div>
 
                     <div className="form-control w-full">
@@ -43,6 +36,16 @@ const AddToy = () => {
                         </label>
                         <input type="email" {...register("sellerEmail")} defaultValue={user?.email} placeholder="" className="input input-bordered w-full" />
                     </div>
+                </div>
+                <div className='form-control w-full'>
+                    <label className="label">
+                        <span className="label-text">Category</span>
+                    </label>
+                    <select className="select select-bordered w-full" {...register("subCategory")}>
+                        <option value="RemoteControl">Remote Control</option>
+                        <option value="SmartRobots">Smart Robots</option>
+                        <option value="OwnRobots">Own Robots</option>
+                    </select>
                 </div>
 
                 <div className='flex flex-col md:flex-row gap-4 '>
