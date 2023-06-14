@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import SectionTitle from '../components/SectionTitle';
 import { Rating } from '@smastrom/react-rating';
 import '@smastrom/react-rating/style.css'
+import { Link } from 'react-router-dom';
 const ShopByCategory = () => {
     const [activeTab, setActiveTab] = useState('Build Your Own Robots')
     const [robots, setRobots] = useState()
@@ -45,7 +46,9 @@ const ShopByCategory = () => {
                                         readOnly
                                     /></p>
                             </div>
-                            <button className="btn mt-2 btn-warning text-white btn-block">block</button>
+                            <Link  to={`/myToys/${robot._id}`}>
+                                <button className="btn mt-2 btn-warning text-white btn-block">View Details</button>
+                            </Link>
                         </div>
                     </div>)
                 }

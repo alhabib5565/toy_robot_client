@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import SectionTitle from '../SectionTitle';
+import { Link, useParams } from 'react-router-dom';
 
 const AllToy = () => {
     const [robots, setRobots] = useState()
-
+    const {id} = useParams()
     useEffect(() => {
         fetch(`http://localhost:5000/robots?subCatagory=' '`)
             .then(res => res.json())
@@ -27,9 +28,11 @@ const AllToy = () => {
                             <p>Category: {robot.subCategory}</p>
                             <div className='flex items-center justify-between'>
                                 <p>price: $ {robot.price}</p>
-                            <p>Quantity: {robot.availableQuantity}</p>
+                                <p>Quantity: {robot.availableQuantity}</p>
                             </div>
-                            <button className="btn mt-2 btn-warning text-white btn-block">block</button>
+                            <Link to={`/myToys/${robot._id}`}>
+                                <button className="btn mt-2 btn-warning text-white btn-block">block</button>
+                            </Link>
                         </div>
                     </div>)
                 }
