@@ -2,6 +2,7 @@ import React from 'react';
 import Banner from './Banner';
 import Gallary from '../../provider/Gallary';
 import ShopByCategory from '../../provider/ShopByCategory';
+import AllToy from '../AllToys/AllToy';
 
 const Home = () => {
     return (

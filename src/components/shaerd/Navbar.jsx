@@ -45,7 +45,7 @@ const Navbar = () => {
             user ? <>
                 <li>
                     <NavLink
-                        to='/alltoys'
+                        to='/allToy'
                         className={({ isActive }) => isActive ? "text-orange-300" : ''}
                     >
                         All Toys
