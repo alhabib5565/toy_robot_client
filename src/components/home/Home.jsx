@@ -3,6 +3,7 @@ import Banner from './Banner';
 import Gallary from '../../provider/Gallary';
 import ShopByCategory from '../../provider/ShopByCategory';
 import AllToy from '../AllToys/AllToy';
+import Footer from '../Footer/Footer';
 
 const Home = () => {
     return (
@@ -12,6 +13,7 @@ const Home = () => {
                 <Gallary></Gallary>
                 <ShopByCategory></ShopByCategory>
             </div>
+            <Footer></Footer>
         </div>
     );
 };

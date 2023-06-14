@@ -4,7 +4,6 @@ import { Link, useParams } from 'react-router-dom';
 
 const AllToy = () => {
     const [robots, setRobots] = useState()
-    const {id} = useParams()
     useEffect(() => {
         fetch(`http://localhost:5000/robots?subCatagory=' '`)
             .then(res => res.json())
@@ -30,7 +29,7 @@ const AllToy = () => {
                                 <p>price: $ {robot.price}</p>
                                 <p>Quantity: {robot.availableQuantity}</p>
                             </div>
-                            <Link to={`/myToys/${robot._id}`}>
+                            <Link to={`/toyDetails/${robot._id}`}>
                                 <button className="btn mt-2 btn-warning text-white btn-block">block</button>
                             </Link>
                         </div>

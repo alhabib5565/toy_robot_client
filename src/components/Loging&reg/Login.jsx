@@ -1,12 +1,16 @@
 import React, { useContext, useState } from 'react';
 import img from '../../assets/login.avif'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const Login = () => {
     const [error, setError] = useState('')
-    const {loginUser} = useContext(AuthContext)
+    const { loginUser } = useContext(AuthContext)
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+
     const handleLogin = (event) => {
         event.preventDefault()
         const form = event.target
@@ -16,18 +20,19 @@ const Login = () => {
 
         setError('')
         loginUser(email, password)
-        .then(result => {
-            console.log(result)
-            Swal.fire({
-                title: 'Success!',
-                text: 'Login successfull',
-                icon: 'success',
-                confirmButtonText: 'Cool'
-              })
-        })
-        .catch(error => {
-            setError(error.message)
-        })
+            .then(result => {
+                console.log(result)
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Login successfull',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                })
+                navigate(from, { replace: true });
+            })
+            .catch(error => {
+                setError(error.message)
+            })
     }
     return (
         <div className="hero min-h-screen bg-base-200">

@@ -1,7 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from "react-hook-form"
 import { AuthContext } from '../../provider/AuthProvider';
+import { json, useNavigate } from 'react-router-dom';
 const AddToy = () => {
+    const navigate = useNavigate()
     const { user } = useContext(AuthContext)
     const {
         register,
@@ -12,6 +14,14 @@ const AddToy = () => {
 
     const onSubmit = (data) => {
         console.log(data)
+        const {availabeQuantity,picture,price,rating,sellerEmail,sellerName,subCategory,toyDetails,toyName} = data
+        // fetch(`http://localhost:5000/addToy`, {
+        //     method: 'POST',
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify("")
+        // })
     }
     return (
         <div className='max-w-7xl h-screen bg-gray-200 mx-auto flex items-center p-4'>

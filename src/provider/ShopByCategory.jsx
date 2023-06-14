@@ -46,7 +46,7 @@ const ShopByCategory = () => {
                                         readOnly
                                     /></p>
                             </div>
-                            <Link  to={`/myToys/${robot._id}`}>
+                            <Link  to={`/toyDetails/${robot._id}`}>
                                 <button className="btn mt-2 btn-warning text-white btn-block">View Details</button>
                             </Link>
                         </div>

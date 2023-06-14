@@ -4,14 +4,18 @@ import Home from "../components/home/Home";
 import Register from "../components/Loging&reg/Register";
 import Login from "../components/Loging&reg/Login";
 import AllToy from "../components/AllToys/AllToy";
-import MyToys from "../components/myToys/myToys";
+// import MyToys from "../components/myToys/myToys";
 import AddToy from "../components/AddToy/AddToy";
+import MyToys from "../components/myToys/MyToys";
+import PrivateRoute from "./PrivateRoute";
+import ErrorPage from "../components/ErrorPage";
 
 
 const routes = createBrowserRouter([
     {
         path: '/',
         element: <Layout></Layout>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
@@ -30,8 +34,8 @@ const routes = createBrowserRouter([
                 element: <AllToy></AllToy>
             },
             {
-                path: 'myToys/:id',
-                element: <MyToys></MyToys>,
+                path: 'toyDetails/:id',
+                element: <PrivateRoute><MyToys></MyToys></PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/robot/${params.id}`)
             },
             {
