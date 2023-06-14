@@ -7,7 +7,10 @@ import img6 from '../assets/img6.jpg'
 import img3 from '../assets/img3.jpg'
 import img4 from '../assets/img4.jpg'
 import img5 from '../assets/img5.jpg'
+import useRobotes from '../hooks/useRobotes';
 const Gallary = () => {
+    const robots = useRobotes()
+    console.log(robots)
     return (
     <>
         <h2 className="text-3xl mb-10 md:text-5xl text-orange-400 font-bold text-center">Explore Our Gallary Section</h2>

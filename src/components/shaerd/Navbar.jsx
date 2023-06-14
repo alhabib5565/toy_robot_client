@@ -7,7 +7,6 @@ import toast, { Toaster } from 'react-hot-toast';
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
     // console.log(user.email, 'user navbar')
-    console.log(user?.photoURL)
     const handleLogout = () => {
         logOut()
             .then(() => {
