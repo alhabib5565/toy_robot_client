@@ -14,18 +14,37 @@ const AddToy = () => {
 
     const onSubmit = (data) => {
         console.log(data)
-        const {availabeQuantity,picture,price,rating,sellerEmail,sellerName,subCategory,toyDetails,toyName} = data
-        // fetch(`http://localhost:5000/addToy`, {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify("")
-        // })
+        const { availabeQuantity, picture, price, rating, sellerEmail, sellerName, subCategory, toyDetails, toyName } = data
+
+        const saveRobotDetails = {
+            toyName, picture, price, rating, sellerName, sellerEmail, subCategory,
+            availableQuantity: availabeQuantity, toyDetails
+        }
+
+        fetch(`http://localhost:5000/addToy`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(saveRobotDetails)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if(data.insertedId){
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'successfully added a toy ',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+            }
+        })
     }
     return (
         <div className='max-w-7xl h-screen bg-gray-200 mx-auto flex items-center p-4'>
-            <form onSubmit={handleSubmit(onSubmit)} className='max-w-3xl bg-white mx-auto p-4'>
+            <form onSubmit={handleSubmit(onSubmit)} className='max-w-3xl overflow-y-auto bg-white mx-auto p-4'>
                 <div className="form-control w-full">
                     <label className="label">
                         <span className="label-text">Toy Name</span>

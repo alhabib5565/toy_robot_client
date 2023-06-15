@@ -60,6 +60,14 @@ const Navbar = () => {
                     </NavLink>
                 </li>
                 <li>
+                    <NavLink
+                        to='/mytoys'
+                        className={({ isActive }) => isActive ? "text-orange-300" : ''}
+                    >
+                       My Toys
+                    </NavLink>
+                </li>
+                <li>
                     <button className='btn btn-warning text-white' onClick={handleLogout}>Log out</button>
                 </li>
 

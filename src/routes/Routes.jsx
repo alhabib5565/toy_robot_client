@@ -6,10 +6,13 @@ import Login from "../components/Loging&reg/Login";
 import AllToy from "../components/AllToys/AllToy";
 // import MyToys from "../components/myToys/myToys";
 import AddToy from "../components/AddToy/AddToy";
-import MyToys from "../components/myToys/MyToys";
+// import MyToys from "../components/myToys/MyToys";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../components/ErrorPage";
 import Blog from "../components/Blog/Blog";
+import MyAllToy from "../components/MyAllToy/MyAllToy";
+import UpadteToyData from "../components/UpdateDoc/UpadteToyData";
+import MyToys from "../components/myToys/myToys";
 
 
 const routes = createBrowserRouter([
@@ -41,11 +44,19 @@ const routes = createBrowserRouter([
             },
             {
                 path: 'addToy',
-                element: <AddToy></AddToy>
+                element: <PrivateRoute><AddToy></AddToy></PrivateRoute>
             },
             {
                 path: 'blog',
                 element: <Blog></Blog>
+            },
+            {
+                path: 'mytoys',
+                element: <PrivateRoute><MyAllToy></MyAllToy></PrivateRoute>
+            },
+            {
+                path: "robot/:id",
+                element: <UpadteToyData></UpadteToyData>
             }
         ]
     }
