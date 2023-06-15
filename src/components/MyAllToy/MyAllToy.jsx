@@ -8,14 +8,14 @@ const MyAllToy = () => {
     const [robots, setRobots] = useState()
     const navigate = useNavigate()
     useEffect(() => {
-        fetch(`http://localhost:5000/robots?subCatagory=' '`)
+        fetch(`https://11-assignment-server.vercel.app/robots?subCatagory=' '`)
             .then(res => res.json())
             .then(data => setRobots(data))
     }, [])
 
 
     const handleDelte = (id) => {
-        fetch(`http://localhost:5000/robot/${id}`, {
+        fetch(`https://11-assignment-server.vercel.app/robot/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -52,7 +52,7 @@ const MyAllToy = () => {
                     </thead>
                     <tbody>
                         {
-                            myRobots.length < 1 && <p className='text-sm text-gray-600 text-center  mt-10'>No robot available </p>
+                            myRobots?.length < 1 && <p className='text-sm text-gray-600 text-center  mt-10'>No robot available </p>
                         }
                         {
                             myRobots?.map((robot, index) => <tr key={index}>

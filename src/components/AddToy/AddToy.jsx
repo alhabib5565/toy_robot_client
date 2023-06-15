@@ -21,7 +21,7 @@ const AddToy = () => {
             availableQuantity: availabeQuantity, toyDetails
         }
 
-        fetch(`http://localhost:5000/addToy`, {
+        fetch(`https://11-assignment-server.vercel.app/addToy`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

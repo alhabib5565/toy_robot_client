@@ -8,7 +8,7 @@ const ShopByCategory = () => {
     const [robots, setRobots] = useState()
 
     useEffect(() => {
-        fetch(`http://localhost:5000/robots?subCatagory=${activeTab}`)
+        fetch(`https://11-assignment-server.vercel.app/robots?subCatagory=${activeTab}`)
             .then(res => res.json())
             .then(data => setRobots(data))
     }, [activeTab])

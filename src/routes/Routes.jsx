@@ -40,7 +40,7 @@ const routes = createBrowserRouter([
             {
                 path: 'toyDetails/:id',
                 element: <PrivateRoute><MyToys></MyToys></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/robot/${params.id}`)
+                loader: ({params}) => fetch(`https://11-assignment-server.vercel.app/robot/${params.id}`)
             },
             {
                 path: 'addToy',

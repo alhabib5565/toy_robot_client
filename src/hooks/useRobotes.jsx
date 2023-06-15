@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const useRobotes = () => {
     const [robots, setRobots] = useState()
     useEffect(() => {
-        fetch(`http://localhost:5000/robots`)
+        fetch(`https://11-assignment-server.vercel.app/robots`)
             .then(res => res.json())
             .then(data => setRobots(data))
     }, [])

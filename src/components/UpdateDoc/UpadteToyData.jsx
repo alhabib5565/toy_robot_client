@@ -16,7 +16,7 @@ const UpadteToyData = () => {
         const { availabeQuantity, price, toyDetails } = data
         const updateRobotData = { availabeQuantity, price, toyDetails }
 
-        fetch(`http://localhost:5000/updateToy/${id}`, {
+        fetch(`https://11-assignment-server.vercel.app/updateToy/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': "application/json"

@@ -5,7 +5,7 @@ import { Link, useParams } from 'react-router-dom';
 const AllToy = () => {
     const [robots, setRobots] = useState()
     useEffect(() => {
-        fetch(`http://localhost:5000/robots?subCatagory=' '`)
+        fetch(`https://11-assignment-server.vercel.app/robots?subCatagory=' '`)
             .then(res => res.json())
             .then(data => setRobots(data))
     }, [])
