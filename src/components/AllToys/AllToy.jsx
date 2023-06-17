@@ -18,7 +18,6 @@ const AllToy = () => {
     }, [])
 
     const handleSearch = () => {
-
         fetch(`https://11-assignment-server.vercel.app/findJob/${text}`)
             .then(res => res.json())
             .then(data => setRobots(data))
@@ -30,6 +29,7 @@ const AllToy = () => {
             <div className='w-fit flex items-center gap-3 mx-auto'>
                 <input onChange={(e) => setText(e.target.value)} type="text" placeholder="Seller Name" className="input input-bordered w-full" />
                 <button onClick={handleSearch} className='btn btn-warning'>Search</button>
+                <Modal></Modal>
             </div>
             <div className='grid grid-cols-1 gap-6 lg:grid-cols-3 mt-10'>
                 {
